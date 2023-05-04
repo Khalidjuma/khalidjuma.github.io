@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        form {
+            max-width: 5000px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 200px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: aqua;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: blue;
+        }
+
+        #box {
+            padding-left: 100px;
+        }
+
+        iframe {
+            width: 1200px;
+            margin-left: 60px;
+        }
+
+        body {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(2.jpg);
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <div class="nV">
+
+
+            <font style="float: right;" class="id" face="cinzel" size="4">
+                <a href="site.html">HOME</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="CONTACTUS.HTML">CONTACT US</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="cv.html">CARICULUM VITAE</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </font>
+            <fieldset>
+
+                <form id="contactform">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                    <label for="Email">Email</label>
+                    <input type="text" id="Email" required>
+                    <label for="Adress">Adress</label>
+                    <input type="text" id="Adress" required>
+                    <label for="Message">Message$Comment</label>
+                    <br />
+                    <textarea name="message" id="Message" cols="30" rows="10"></textarea>
+                    <br />
+                    <input type="submit" value="submit"><br><br>
+                    <br />
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7932.973876926465!2d39.30763370000001!3d-6.199307299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stz!4v1683064129362!5m2!1sen!2stz"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </form>
+            </fieldset>
+    </body>
+    <script>
+        let contactform=document.querySelector('#contactform');
+        contactform.addEventListener('submit',function(){
+            let name=document.querySelector('#name').value;
+            let Email=document.querySelector('#Email').value;
+            let Adress=document.querySelector('#Adress').value;
+            let Message=document.querySelector('#Message').value;
+            let info={name:name,Email:Email,Adress:Adress,Message:Message};
+            let infos=JSON.parse(localStorage.getItem('infos'))||[];
+            infos.push(info);
+            localStorage.setItem('infos',JSON.stringify(infos));
+            alert('your form is submited');
+            contactform.reset();
+        });
+    </script>
+
+</html>
